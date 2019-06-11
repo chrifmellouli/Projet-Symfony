@@ -1,0 +1,89 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-right: 30%; margin-left: 30%">
+        <table width="100%" style="padding-top: 20%">
+            <tr bgcolor="#a9a9a9">
+                <td colspan="2" style="text-align: center;">
+                    Les Detailles Du Chauffeur
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    ID
+                </td>
+                <td>
+                    {{ chauffeur.id }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Nom
+                </td>
+                <td>
+                    {{ chauffeur.nomch }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Prenom
+                </td>
+                <td>
+                    {{ chauffeur.prenomch }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Age
+                </td>
+                <td>
+                    {{ chauffeur.agech }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Cin
+                </td>
+                <td>{{ chauffeur.cinch }}</td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Telephone
+                </td>
+                <td>
+                    {{ chauffeur.tel }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Ville
+                </td>
+                <td>
+                    {{ chauffeur.ville }}
+                </td>
+            </tr>
+        </table>
+        <div style="margin-left: 30%; margin-right: 30%; margin-top: 5%;">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ path('chauffeur_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_chauffeur"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('chauffeur_edit',{'id':chauffeur.id}) }}">
+                            <img src="{{ asset('img/edit.png') }}" alt="edit_chauffeur"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('chauffeur_remove',{'id':chauffeur.id}) }}">
+                            <img src="{{ asset('img/remove.png') }}" alt="remove_chauffeur"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

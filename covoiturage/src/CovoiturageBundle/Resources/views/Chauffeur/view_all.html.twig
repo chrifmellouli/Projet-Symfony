@@ -1,0 +1,51 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 10%; margin-right: 10%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h1 style="text-align: center; color: blue;">
+                Listes Des Chauffeurs
+            </h1>
+        </div>
+        <div style="display : inline-block;vertical-align : top; padding-top: 1%">
+            <a href="{{ path('chauffeur_add') }}">
+                <img src="{{ asset('img/add.png') }}" alt="add_chauffeur"/>
+            </a>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; padding-top: 1%;">
+        <table border="2px" style="width: 100%; text-align: center;">
+            <tr>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Age</th>
+                <th>CIN</th>
+                <th>Telephone</th>
+                <th>Ville</th>
+                <th width="3%"></th>
+                <th width="3%"></th>
+            </tr>
+            {% for chauffeur in chauffeurs %}
+                <tr>
+                    <td>{{ chauffeur.nomch }}</td>
+                    <td>{{ chauffeur.prenomch }}</td>
+                    <td>{{ chauffeur.agech }}</td>
+                    <td>{{ chauffeur.cinch }}</td>
+                    <td>{{ chauffeur.tel }}</td>
+                    <td>{{ chauffeur.ville }}</td>
+                    <td>
+                        <a href="{{ path('chauffeur_edit',{'id':chauffeur.id}) }}">
+                            <img src="{{ asset('img/edit1.png') }}" alt="edit_chauffeur"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('chauffeur_remove',{'id':chauffeur.id}) }}">
+                            <img src="{{ asset('img/remove1.png') }}" alt="remove_chauffeur"/>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

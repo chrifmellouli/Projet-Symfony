@@ -1,0 +1,55 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 10%; margin-right: 10%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h1 style="text-align: center; color: blue;">
+                Listes Des Trajets
+            </h1>
+        </div>
+        <div style="display : inline-block;vertical-align : top; padding-top: 1%">
+            <a href="{{ path('trajet_add') }}">
+                <img src="{{ asset('img/add.png') }}" alt="add_trajet"/>
+            </a>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; padding-top: 1%;">
+        <table border="2px" style="width: 100%; text-align: center;">
+            <tr>
+                <th>Depart</th>
+                <th>Arrivé</th>
+                <th>Date départ</th>
+                <th>Heure départ</th>
+                <th>Nombre de places</th>
+                <th>Voiture</th>
+                <th width="3%"></th>
+                <th width="3%"></th>
+            </tr>
+            {% for trajet in trajets %}
+                <tr>
+                    <td>{{ trajet.depart}}</td>
+                    <td>{{ trajet.arrivee }}</td>
+                    <td>{{ trajet.datedep|date('Y-m-d') }}</td>
+                    <td>{{ trajet.heuredep|date('H:i:s') }}</td>
+                    <td>{{ trajet.nbplacelibre }}</td>
+                    <td>
+                        <a href="{{ path('voiture_view',{'id':trajet.voiture.id}) }}">
+                            {{ trajet.voiture.modelevoit }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('trajet_edit',{'id':trajet.id}) }}">
+                            <img src="{{ asset('img/edit1.png') }}" alt="edit_trajet"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('trajet_remove',{'id':trajet.id}) }}">
+                            <img src="{{ asset('img/remove1.png') }}" alt="remove_trajet"/>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

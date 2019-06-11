@@ -1,0 +1,94 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-right: 30%; margin-left: 30%">
+        <table width="100%" style="padding-top: 20%">
+            <tr bgcolor="#a9a9a9">
+                <td colspan="2" style="text-align: center;">
+                    Les Detailles Du Trajet
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    ID
+                </td>
+                <td>
+                    {{ trajet.id }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Depart
+                </td>
+                <td>
+                    {{ trajet.depart}}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Arrivé
+                </td>
+                <td>
+                    {{ trajet.arrivee }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Date départ
+                </td>
+                <td>
+                    {{ trajet.datedep|date('Y-m-d') }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Heure départ
+                </td>
+                <td>
+                    {{ trajet.heuredep|date('H:i:s')}}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Nombre de places
+                </td>
+                <td>
+                    {{ trajet.nbplacelibre }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Voiture
+                </td>
+                <td>
+                    <img src="{{ asset('img/eye1.png') }}" alt="eye_trajet"/>
+                    <a href="{{ path('voiture_view',{'id':trajet.voiture.id}) }}">
+                        {{ trajet.voiture.modelevoit }}
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div style="margin-left: 30%; margin-right: 30%; margin-top: 5%;">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ path('trajet_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_trajet"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('trajet_edit',{'id':trajet.id}) }}">
+                            <img src="{{ asset('img/edit.png') }}" alt="edit_trajet"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('trajet_remove',{'id':trajet.id}) }}">
+                            <img src="{{ asset('img/remove.png') }}" alt="remove_trajet"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

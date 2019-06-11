@@ -1,0 +1,64 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 5%;">
+        <h2 style="color: blue;">Modifier le chauffeur avec le ID {{ chauffeur.id }}</h2>
+    </div>
+    <div class="form" style="margin-left: 5%;">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.nomch, "Nom du chauffeur") }}
+            {{ form_errors(form.nomch) }}
+            <div>
+                {{ form_widget(form.nomch) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.prenomch, "Prenom du chauffeur") }}
+            {{ form_errors(form.prenomch) }}
+            <div>
+                {{ form_widget(form.prenomch) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.agech, "Age du chauffeur") }}
+            {{ form_errors(form.agech) }}
+            <div>
+                {{ form_widget(form.agech) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.cinch, "CIN du chauffeur") }}
+            {{ form_errors(form.cinch) }}
+            <div>
+                {{ form_widget(form.cinch) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.tel, "Telephone du chauffeur") }}
+            {{ form_errors(form.tel) }}
+            <div>
+                {{ form_widget(form.tel) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.ville, "Ville du chauffeur") }}
+            {{ form_errors(form.ville) }}
+            <div>
+                {{ form_widget(form.ville) }}
+            </div>
+        </div>
+        <div>
+            {{ form_rest(form) }}
+        </div>
+        <div>
+            {{ form_widget(form.save) }}
+        </div>
+        <div>
+            {{ form_widget(form.reset) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

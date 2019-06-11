@@ -1,0 +1,105 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-right: 30%; margin-left: 30%; display: inline-block;">
+        <table width="100%" style="padding-top: 20%">
+            <tr bgcolor="#a9a9a9">
+                <td colspan="2" style="text-align: center;">
+                    Les Detailles De la voiture ave ID {{ voiture.id }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    ID
+                </td>
+                <td>
+                    {{ voiture.id }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Modele
+                </td>
+                <td>
+                    {{ voiture.modelevoit }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Climatiseur
+                </td>
+                <td>
+                    {% if voiture.clim == 1 %}
+                        <img src="{{ asset('img/true.png') }}" alt="true"/>
+                    {% else %}
+                        <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Fumeur
+                </td>
+                <td>
+                    {% if voiture.fumeur == 1 %}
+                        <img src="{{ asset('img/true.png') }}" alt="true"/>
+                    {% else %}
+                        <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Bagage
+                </td>
+                <td>
+                    {% if voiture.bagage == 1 %}
+                        <img src="{{ asset('img/true.png') }}" alt="true"/>
+                    {% else %}
+                        <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Photo
+                </td>
+                <td>
+                    {{ voiture.photovoit }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Chauffeur
+                </td>
+                <td>
+                    <a href="{{ path('chauffeur_view',{'id': voiture.chauffeur.id}) }}" style="text-align: center;">
+                        {{ voiture.chauffeur.nomch ~ " " ~ voiture.chauffeur.prenomch }}
+                    </a>
+                </td>
+            </tr>
+        </table>
+        <div style="margin-left: 30%; margin-right: 30%; margin-top: 5%;">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ path('voiture_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_voiture"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_edit',{'id':voiture.id}) }}">
+                            <img src="{{ asset('img/edit.png') }}" alt="edit_voiture"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_remove',{'id':voiture.id}) }}">
+                            <img src="{{ asset('img/remove.png') }}" alt="remove_voiture"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

@@ -1,0 +1,73 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 10%; margin-right: 10%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h1 style="text-align: center; color: blue;">
+                Listes Des Voitures
+            </h1>
+        </div>
+        <div style="display : inline-block;vertical-align : top; padding-top: 1%">
+            <a href="{{ path('voiture_add') }}">
+                <img src="{{ asset('img/add.png') }}" alt="add_voiture"/>
+            </a>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; padding-top: 1%;">
+        <table border="2px" style="width: 100%; text-align: center;">
+            <tr>
+                <th>Modele</th>
+                <th>Climatiseur</th>
+                <th>Fumeur</th>
+                <th>Bagage</th>
+                <th>Photo</th>
+                <th>Chauffeur</th>
+                <th width="3%"></th>
+                <th width="3%"></th>
+            </tr>
+            {% for voiture in voitures %}
+                <tr>
+                    <td>{{ voiture.modelevoit }}</td>
+                    <td>
+                        {% if voiture.clim == 1 %}
+                            <img src="{{ asset('img/true.png') }}" alt="true"/>
+                        {% else %}
+                            <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if voiture.fumeur == 1 %}
+                            <img src="{{ asset('img/true.png') }}" alt="true"/>
+                        {% else %}
+                            <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if voiture.bagage == 1 %}
+                            <img src="{{ asset('img/true.png') }}" alt="true"/>
+                        {% else %}
+                            <img src="{{ asset('img/false.jpg') }}" alt="false"/>
+                        {% endif %}
+                    </td>
+                    <td>{{ voiture.photovoit }}</td>
+                    <td>
+                        <a href="{{ path('chauffeur_view',{'id': voiture.chauffeur.id}) }}" style="text-align: center;">
+                            {{ voiture.chauffeur.nomch ~ " " ~ voiture.chauffeur.prenomch }}
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_edit',{'id':voiture.id}) }}">
+                            <img src="{{ asset('img/edit1.png') }}" alt="edit_voiture"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_remove',{'id':voiture.id}) }}">
+                            <img src="{{ asset('img/remove1.png') }}" alt="remove_voiture"/>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

@@ -1,0 +1,105 @@
+covoiturage_homepage:
+    path:     /
+    defaults: { _controller: CovoiturageBundle:Default:index }
+exception:
+    path:   /exception
+    defaults: { _controller: CovoiturageBundle:Default:exception}
+chauffeur_view:
+    path:     /chauffeur/view/{id}
+    defaults: { _controller: CovoiturageBundle:Chauffeur:view }
+
+chauffeur_view_all:
+    path:     /chauffeur/view_all
+    defaults: { _controller: CovoiturageBundle:Chauffeur:viewAll }
+
+chauffeur_add:
+    path:     /chauffeur/add
+    defaults: { _controller: CovoiturageBundle:Chauffeur:add }
+
+chauffeur_edit:
+    path:     /chauffeur/edit/{id}
+    defaults: { _controller: CovoiturageBundle:Chauffeur:edit }
+
+chauffeur_remove:
+    path:     /chauffeur/remove/{id}
+    defaults: { _controller: CovoiturageBundle:Chauffeur:remove }
+
+passager_view:
+    path:     /passager/view/{id}
+    defaults: { _controller: CovoiturageBundle:Passager:view }
+
+passager_view_all:
+    path:     /passager/view_all
+    defaults: { _controller: CovoiturageBundle:Passager:viewAll }
+
+passager_add:
+    path:     /passager/add
+    defaults: { _controller: CovoiturageBundle:Passager:add }
+
+passager_edit:
+    path:     /passager/edit/{id}
+    defaults: { _controller: CovoiturageBundle:Passager:edit }
+
+passager_remove:
+    path:     /passager/remove/{id}
+    defaults: { _controller: CovoiturageBundle:Passager:remove }
+
+reserv_trajet_view:
+    path:     /reserv_trajet/view/{id}
+    defaults: { _controller: CovoiturageBundle:ReservTrajet:view }
+
+reserv_trajet_view_all:
+    path:     /reserv_trajet/view_all
+    defaults: { _controller: CovoiturageBundle:ReservTrajet:viewAll }
+
+reserv_trajet_add:
+    path:     /reserv_trajet/add
+    defaults: { _controller: CovoiturageBundle:ReservTrajet:add }
+
+reserv_trajet_edit:
+    path:     /reserv_trajet/edit/{id}
+    defaults: { _controller: CovoiturageBundle:ReservTrajet:edit }
+
+reserv_trajet_remove:
+    path:     /reserv_trajet/remove/{id}
+    defaults: { _controller: CovoiturageBundle:ReservTrajet:remove }
+
+trajet_view:
+    path:     /trajet/view/{id}
+    defaults: { _controller: CovoiturageBundle:Trajet:view }
+
+trajet_view_all:
+    path:     /trajet/view_all
+    defaults: { _controller: CovoiturageBundle:Trajet:viewAll }
+
+trajet_add:
+    path:     /trajet/add
+    defaults: { _controller: CovoiturageBundle:Trajet:add }
+
+trajet_edit:
+    path:     /trajet/edit/{id}
+    defaults: { _controller: CovoiturageBundle:Trajet:edit }
+
+trajet_remove:
+    path:     /trajet/remove/{id}
+    defaults: { _controller: CovoiturageBundle:Trajet:remove }
+
+voiture_view:
+    path:     /voiture/view/{id}
+    defaults: { _controller: CovoiturageBundle:Voiture:view }
+
+voiture_view_all:
+    path:     /voiture/view_all
+    defaults: { _controller: CovoiturageBundle:Voiture:viewAll }
+
+voiture_add:
+    path:     /voiture/add
+    defaults: { _controller: CovoiturageBundle:Voiture:add }
+
+voiture_edit:
+    path:     /voiture/edit/{id}
+    defaults: { _controller: CovoiturageBundle:Voiture:edit }
+
+voiture_remove:
+    path:     /voiture/remove/{id}
+    defaults: { _controller: CovoiturageBundle:Voiture:remove }

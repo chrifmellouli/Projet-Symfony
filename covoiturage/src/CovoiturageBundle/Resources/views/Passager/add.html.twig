@@ -1,0 +1,42 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 5%;">
+        <h2 style="color: blue;">Ajouter un passager</h2>
+    </div>    <div class="form" style="margin-left: 5%;">
+        {{ form_start(form) }}
+        {{ form_errors(form) }}
+        <div>
+            {{ form_label(form.nompass, "Nom du passager") }}
+            {{ form_errors(form.nompass) }}
+            <div>
+                {{ form_widget(form.nompass) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.prenompass, "Prenom du passager") }}
+            {{ form_errors(form.prenompass) }}
+            <div>
+                {{ form_widget(form.prenompass) }}
+            </div>
+        </div>
+        <div>
+            {{ form_label(form.telpass, "Telephone du passager") }}
+            {{ form_errors(form.telpass) }}
+            <div>
+                {{ form_widget(form.telpass) }}
+            </div>
+        </div>
+        <div>
+            {{ form_rest(form) }}
+        </div>
+        <div>
+            {{ form_widget(form.save) }}
+        </div>
+        <div>
+            {{ form_widget(form.reset) }}
+        </div>
+        {{ form_end(form) }}
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

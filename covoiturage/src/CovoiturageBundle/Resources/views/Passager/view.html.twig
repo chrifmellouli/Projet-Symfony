@@ -1,0 +1,67 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-right: 30%; margin-left: 30%">
+        <table width="100%" style="padding-top: 20%">
+            <tr bgcolor="#a9a9a9">
+                <td colspan="2" style="text-align: center;">
+                    Les Detailles Du Passager
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    ID
+                </td>
+                <td>
+                    {{ passager.id }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Nom
+                </td>
+                <td>
+                    {{ passager.nompass }}
+                </td>
+            </tr>
+            <tr bgcolor="#b0c4de">
+                <td>
+                    Prenom
+                </td>
+                <td>
+                    {{ passager.prenompass }}
+                </td>
+            </tr>
+            <tr bgcolor="#faebd7">
+                <td>
+                    Telephone
+                </td>
+                <td>
+                    {{ passager.telpass }}
+                </td>
+            </tr>
+        </table>
+        <div style="margin-left: 30%; margin-right: 30%; margin-top: 5%;">
+            <table>
+                <tr>
+                    <td>
+                        <a href="{{ path('passager_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_passager"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('passager_edit',{'id':passager.id}) }}">
+                            <img src="{{ asset('img/edit.png') }}" alt="edit_passager"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('passager_remove',{'id':passager.id}) }}">
+                            <img src="{{ asset('img/remove.png') }}" alt="remove_passager"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

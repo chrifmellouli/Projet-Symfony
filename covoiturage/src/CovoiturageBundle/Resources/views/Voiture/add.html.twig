@@ -1,0 +1,25 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 5%;">
+        <h2 style="color: blue;">Ajouter une voiture</h2>
+    </div>
+    <div style="margin-left: 5%;">
+        {{ form(form) }}
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $container = $("div #covoiturageBundle_voiture_chauffeur");
+            var index = $container.find(':input').length;
+            addChauffeur($container);
+            function addChauffeur($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Chauffeur ').replace(/__name__/g, index));
+                //addDeleteLink($prototype);
+                $container.append($prototype);
+                index++;
+            }
+        });
+    </script>
+{% endblock %}

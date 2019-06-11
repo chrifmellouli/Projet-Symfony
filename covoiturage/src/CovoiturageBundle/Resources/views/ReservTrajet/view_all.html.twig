@@ -1,0 +1,72 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 10%; margin-right: 10%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h1 style="text-align: center; color: blue;">
+                Listes Des Reservation
+            </h1>
+        </div>
+        <div style="display : inline-block;vertical-align : top; padding-top: 1%">
+            <a href="{{ path('reserv_trajet_add') }}">
+                <img src="{{ asset('img/add.png') }}" alt="add_reservation"/>
+            </a>
+        </div>
+    </div>
+    <div style="margin-left: 10%; margin-right: 10%; padding-top: 1%;">
+        <table border="2px" style="width: 100%; text-align: center;">
+            <tr>
+                <th colspan="6">Trajet</th>
+                <th colspan="4">Passager</th>
+                <th colspan="2">Actions</th>
+            </tr>
+            <tr>
+                <th>Depart</th>
+                <th>Arrivé</th>
+                <th>Date départ</th>
+                <th>Heure départ</th>
+                <th>Places</th>
+                <th width="3%"></th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Telephone</th>
+                <th width="3%"></th>
+                <th width="3%"></th>
+                <th width="3%"></th>
+            </tr>
+            {% for reservTrajet in reservTrajets %}
+                <tr>
+                    <td>{{ reservTrajet.trajet.depart}}</td>
+                    <td>{{ reservTrajet.trajet.arrivee }}</td>
+                    <td>{{ reservTrajet.trajet.datedep|date('Y-m-d') }}</td>
+                    <td>{{ reservTrajet.trajet.heuredep|date('H:i:s') }}</td>
+                    <td>{{ reservTrajet.trajet.nbplacelibre }}</td>
+                    <td>
+                        <a href="{{ path('trajet_view',{'id':reservTrajet.trajet.id}) }}">
+                            <img src="{{ asset('img/eye1.png') }}" alt="view_trajet"/>
+                        </a>
+                    </td>
+                    <td>{{ reservTrajet.passager.nompass }}</td>
+                    <td>{{ reservTrajet.passager.prenompass }}</td>
+                    <td>{{ reservTrajet.passager.telpass }}</td>
+                    <td>
+                        <a href="{{ path('passager_view',{'id':reservTrajet.passager.id}) }}">
+                            <img src="{{ asset('img/eye1.png') }}" alt="view_passager"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('reserv_trajet_edit',{'id':reservTrajet.id}) }}">
+                            <img src="{{ asset('img/edit1.png') }}" alt="edit_reservation"/>
+                        </a>
+                    </td>
+                    <td>
+                        <a href="{{ path('reserv_trajet_remove',{'id':reservTrajet.id}) }}">
+                            <img src="{{ asset('img/remove1.png') }}" alt="remove_reservation"/>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </table>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}

@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}{% endblock %}
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}"/>
+    <style>
+        body {
+            background-image: url("{{ asset('img/roads.jpg') }}");
+            background-size: 100%;
+        }
+    </style>
+</head>
+<body>
+{% block body %}
+    <h1 style="text-align: center; color: blue;">Projet Covoiturage : Index</h1>
+    <div style="margin-left: 10%; margin-right: 10%; padding-top: 10%;">
+        <div style="display : inline-block;vertical-align : top;">
+            <table border="2px">
+                <tr>
+                    <td colspan="2" style="color: #8959A8;text-align: center;">
+                        Chauffeur
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <img src="{{ asset('img/driver128.png') }}" alt="chauffeur"/>
+                    </td>
+                    <td>
+                        <a href="{{ path('chauffeur_view_all') }}">
+                            <img src="{{ asset('img/liste.png') }}" alt="liste_chauffeur"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ path('chauffeur_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_chauffeur"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <table border="2px">
+                <tr>
+                    <td colspan="2" style="color: #8959A8;text-align: center;">
+                        Passager
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <img src="{{ asset('img/passenger128.png') }}" alt="passager"/>
+                    </td>
+                    <td>
+                        <a href="{{ path('passager_view_all') }}">
+                            <img src="{{ asset('img/liste.png') }}" alt="liste_passager"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ path('passager_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_passager"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <table border="2px">
+                <tr>
+                    <td colspan="2" style="color: #8959A8;text-align: center;">
+                        Reservation
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <img src="{{ asset('img/reservation128.png') }}" alt="reservation"/>
+                    </td>
+                    <td>
+                        <a href="{{ path('reserv_trajet_view_all') }}"><img src="{{ asset('img/liste.png') }}"
+                                                                            alt="liste_reservation"/></a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ path('reserv_trajet_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_reservation"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <table border="2px">
+                <tr>
+                    <td colspan="2" style="color: #8959A8;text-align: center;">
+                        Trajet
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2"><img src="{{ asset('img/trajet128.png') }}" alt="trajet"/></td>
+                    <td>
+                        <a href="{{ path('trajet_view_all') }}">
+                            <img src="{{ asset('img/liste.png') }}" alt="liste_trajet"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <a href="{{ path('trajet_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_trajet"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <table border="2px">
+                <tr>
+                    <td colspan="2" style="color: #8959A8;text-align: center;">
+                        Voiture
+                    </td>
+                </tr>
+                <tr>
+                    <td rowspan="2">
+                        <img src="{{ asset('img/car128.png') }}" alt="voiture"/>
+                    </td>
+                    <td>
+                        <a href="{{ path('voiture_view_all') }}">
+                            <img src="{{ asset('img/liste.png') }}" alt="liste_voiture"/>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="{{ path('voiture_add') }}">
+                            <img src="{{ asset('img/add.png') }}" alt="add_voiture"/>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>

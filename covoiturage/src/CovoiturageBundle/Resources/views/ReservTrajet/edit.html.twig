@@ -1,0 +1,32 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-left: 5%;">
+        <h2 style="color: blue;">Modifier la reservation avec ID {{ reservTrajet.id }}</h2>
+    </div>
+    <div style="margin-left: 5%;">
+        {{ form(form) }}
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var $container = $("div #covoiturageBundle_reserv_trajet_passager");
+            var index = $container.find(':input').length;
+            addPassager($container);
+            addTrajet($container);
+
+            function addPassager($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Trajet ').replace(/__name__/g, index));
+                $container.append($prototype);
+                index++;
+            }
+
+            function addTrajet($container) {
+                var $prototype = $($container.attr('data-prototype').replace(/__name__label__/g, 'Voiture ').replace(/__name__/g, index));
+                $container.append($prototype);
+                index++;
+            }
+        });
+    </script>
+{% endblock %}

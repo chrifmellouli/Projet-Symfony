@@ -1,0 +1,34 @@
+{% include"@Covoiturage/Default/bg.html.twig" %}
+{% block body %}
+    {% include"@Covoiturage/Default/navbar.html.twig" %}
+    <div style="margin-right: 35%; margin-left: 35%">
+        <h3 style="color: red">OUUUUUUUUUPSsssss Exception !!!!!!!!! </h3>
+        <div style="margin-right: 20%; margin-left: 20%">
+            <img src="{{ asset('img/LOL.png') }}" alt="lol"/>
+        </div>
+    </div>
+    <div style="margin-right: 5%; margin-left: 5%">
+        <p>
+            Dû à votre effort insuffisant dans le développement de cette application, vous avez comme récompense cette exception!<br />
+            Penser à modifier votre code en ajoutant " delete on cascade", ou supprimer l'enregistrement où se trouve votre clé étrangère.
+            Merci pour votre compréhension!
+        </p>
+    </div>
+    <div style="margin-right: 5%; margin-left: 5%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h3>Code de l'exception : </h3>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <h3 style="color: blue;">{{ status_code }}</h3>
+        </div>
+    </div>
+    <div style="margin-right: 5%; margin-left: 5%">
+        <div style="display : inline-block;vertical-align : top;">
+            <h3>Message de l'exception : </h3>
+        </div>
+        <div style="display : inline-block;vertical-align : top;">
+            <p style="color: blue;">{{ status_text }}</p>
+        </div>
+    </div>
+    {% include"@Covoiturage/Default/footbar.html.twig" %}
+{% endblock %}
